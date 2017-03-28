@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                               idv.trashchu.bot.controllers.HomeController.index
+
+# Fortune Bot
+# Privacy Policy
+GET     /fortunebot/privacypolicy       controllers.Assets.at(path="/public", file="privacypolicy.html")
+
+# Facebook
+GET     /fortunebot/facebook/webhook    idv.trashchu.bot.controllers.FortuneBotController.getFacebookWebhook(`hub.mode`: String ?= "", `hub.challenge`: String ?= "", `hub.verify_token`: String ?= "")
+POST    /fortunebot/facebook/webhook    idv.trashchu.bot.controllers.FortuneBotController.postFacebookWebhook
+
+# Line
+# GET     /fortunebot/facebook/webhook    idv.trashchu.bot.controllers.FortuneBotController.getFacebookWebhook(`hub.mode`: String ?= "", `hub.challenge`: String ?= "", `hub.verify_token`: String ?= "")
+POST    /fortunebot/line/webhook        idv.trashchu.bot.controllers.FortuneBotController.postLineWebhook
